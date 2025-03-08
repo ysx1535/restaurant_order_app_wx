@@ -1,0 +1,104 @@
+<!--menu.wxml-->
+<view class="page">
+  <!-- 顶部搜索栏 -->
+  <view class="search-container">
+    <view class="search-box">
+      <icon type="search" size="16" color="#999"></icon>
+      <input placeholder="搜索菜品" bindinput="onSearchInput" confirm-type="search" bindconfirm="onSearch" value="{{searchValue}}"/>
+    </view>
+  </view>
+
+  <!-- 桌号信息 -->
+  <view class="table-info" wx:if="{{currentTable}}">
+    <view class="table-number">当前桌号: {{currentTable}}号桌</view>
+  </view>
+  <view class="table-info" wx:else>
+    <view class="table-number text-secondary">未选择桌号，请扫码点餐</view>
+    <button class="scan-btn-small" bindtap="scanQRCode">扫码</button>
+  </view>
+
+  <!-- 分类导航 -->
+  <view class="category-nav">
+    <scroll-view scroll-x="true" class="category-scroll">
+      <view class="category-list">
+        <view class="category-item {{currentCategory === 'all' ? 'active' : ''}}" bindtap="switchCategory" data-category="all">
+          <text>全部</text>
+        </view>
+        <view class="category-item {{currentCategory === 'breakfast' ? 'active' : ''}}" bindtap="switchCategory" data-category="breakfast">
+          <text>早餐</text>
+        </view>
+        <view class="category-item {{currentCategory === 'lunch' ? 'active' : ''}}" bindtap="switchCategory" data-category="lunch">
+          <text>午餐</text>
+        </view>
+        <view class="category-item {{currentCategory === 'dinner' ? 'active' : ''}}" bindtap="switchCategory" data-category="dinner">
+          <text>晚餐</text>
+        </view>
+        <view class="category-item {{currentCategory === 'drinks' ? 'active' : ''}}" bindtap="switchCategory" data-category="drinks">
+          <text>饮品</text>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <!-- 菜品列表 -->
+  <view class="dish-container">
+    <view class="dish-list">
+      <view class="dish-item card" wx:for="{{dishes}}" wx:key="id">
+        <image class="dish-image" src="{{item.image}}" mode="aspectFill"></image>
+        <view class="dish-info">
+          <view class="dish-name text-bold">{{item.name}}</view>
+          <view class="dish-desc text-secondary">{{item.description}}</view>
+          <view class="dish-bottom">
+            <view class="dish-price price">¥{{item.price}}</view>
+            <view class="dish-actions">
+              <view class="action-btn minus" bindtap="removeFromCart" data-dish-id="{{item.id}}" wx:if="{{item.count > 0}}">-</view>
+              <view class="dish-count" wx:if="{{item.count > 0}}">{{item.count}}</view>
+              <view class="action-btn plus" bindtap="addToCart" data-dish="{{item}}">+</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 购物车悬浮按钮 -->
+  <view class="cart-container {{cartItems.length > 0 ? 'active' : ''}}" bindtap="showCartDetail">
+    <view class="cart-icon-container">
+      <image class="cart-icon" src="/images/icon/cart.png"></image>
+      <view class="cart-badge" wx:if="{{cartItems.length > 0}}">{{totalCount}}</view>
+    </view>
+    <view class="cart-info">
+      <view class="cart-price price">¥{{totalPrice}}</view>
+    </view>
+    <view class="cart-btn">去结算</view>
+  </view>
+
+  <!-- 购物车详情弹窗 -->
+  <view class="cart-popup {{showCart ? 'show' : ''}}">
+    <view class="cart-mask" bindtap="hideCartDetail"></view>
+    <view class="cart-detail">
+      <view class="cart-header">
+        <view class="cart-title">购物车</view>
+        <view class="cart-clear" bindtap="clearCart">清空</view>
+      </view>
+      <scroll-view scroll-y="true" class="cart-list">
+        <view class="cart-item" wx:for="{{cartItems}}" wx:key="id">
+          <view class="cart-item-name">{{item.name}}</view>
+          <view class="cart-item-price price">¥{{item.price}}</view>
+          <view class="dish-actions">
+            <view class="action-btn minus" bindtap="removeFromCart" data-dish-id="{{item.id}}">-</view>
+            <view class="dish-count">{{item.count}}</view>
+            <view class="action-btn plus" bindtap="addToCart" data-dish="{{item}}">+</view>
+          </view>
+        </view>
+      </scroll-view>
+      <view class="cart-footer">
+        <view class="cart-total">
+          <text>合计：</text>
+          <text class="price">¥{{totalPrice}}</text>
+        </view>
+        <button class="submit-btn btn-primary" bindtap="submitOrder">提交订单</button>
+      </view>
+    </view>
+  </view>
+</view>

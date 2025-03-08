@@ -1,0 +1,342 @@
+/**menu.wxss**/
+
+/* 搜索框样式 */
+.search-container {
+  padding: 20rpx;
+  background-color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  background-color: #f5f5f5;
+  border-radius: 30rpx;
+  padding: 15rpx 20rpx;
+}
+
+.search-box icon {
+  margin-right: 10rpx;
+}
+
+.search-box input {
+  flex: 1;
+  font-size: 28rpx;
+}
+
+/* 桌号信息样式 */
+.table-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx;
+  background-color: #fff;
+  margin-bottom: 2rpx;
+}
+
+.table-number {
+  font-size: 28rpx;
+}
+
+.scan-btn-small {
+  font-size: 24rpx;
+  padding: 8rpx 20rpx;
+  line-height: 1.5;
+  background-color: #FF5722;
+  color: #fff;
+  border-radius: 30rpx;
+  margin: 0;
+}
+
+/* 分类导航样式 */
+.category-nav {
+  background-color: #fff;
+  padding: 10rpx 0;
+  margin-bottom: 20rpx;
+  white-space: nowrap;
+  position: sticky;
+  top: 100rpx;
+  z-index: 99;
+}
+
+.category-scroll {
+  width: 100%;
+}
+
+.category-list {
+  display: flex;
+  padding: 0 20rpx;
+}
+
+.category-item {
+  padding: 15rpx 30rpx;
+  font-size: 28rpx;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.category-item.active {
+  color: #FF5722;
+  font-weight: bold;
+}
+
+.category-item.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 30rpx;
+  right: 30rpx;
+  height: 4rpx;
+  background-color: #FF5722;
+  border-radius: 2rpx;
+}
+
+/* 菜品列表样式 */
+.dish-container {
+  padding: 10rpx 20rpx;
+  padding-bottom: 120rpx;
+}
+
+.dish-item {
+  display: flex;
+  margin-bottom: 20rpx;
+  padding: 20rpx;
+}
+
+.dish-image {
+  width: 180rpx;
+  height: 180rpx;
+  border-radius: 8rpx;
+  margin-right: 20rpx;
+}
+
+.dish-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.dish-name {
+  font-size: 32rpx;
+  margin-bottom: 10rpx;
+}
+
+.dish-desc {
+  font-size: 24rpx;
+  line-height: 1.4;
+  margin-bottom: 20rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.dish-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dish-price {
+  font-size: 32rpx;
+}
+
+.dish-actions {
+  display: flex;
+  align-items: center;
+}
+
+.action-btn {
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28rpx;
+}
+
+.action-btn.minus {
+  background-color: #f8f8f8;
+  color: #666;
+  border: 1px solid #ddd;
+}
+
+.action-btn.plus {
+  background-color: #FF5722;
+  color: #fff;
+}
+
+.dish-count {
+  width: 50rpx;
+  text-align: center;
+  font-size: 28rpx;
+}
+
+/* 购物车样式 */
+.cart-container {
+  position: fixed;
+  bottom: 30rpx;
+  left: 30rpx;
+  right: 30rpx;
+  height: 100rpx;
+  background-color: #333;
+  border-radius: 50rpx;
+  display: flex;
+  align-items: center;
+  padding: 0 30rpx;
+  color: #fff;
+  z-index: 1000;
+}
+
+.cart-container.active {
+  background-color: #FF5722;
+}
+
+.cart-icon-container {
+  position: relative;
+  margin-right: 20rpx;
+}
+
+.cart-icon {
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.cart-badge {
+  position: absolute;
+  top: -10rpx;
+  right: -10rpx;
+  background-color: #fff;
+  color: #FF5722;
+  font-size: 20rpx;
+  min-width: 36rpx;
+  height: 36rpx;
+  border-radius: 18rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.cart-info {
+  flex: 1;
+}
+
+.cart-price {
+  color: #fff;
+  font-size: 32rpx;
+}
+
+.cart-btn {
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 10rpx 30rpx;
+  border-radius: 30rpx;
+  font-size: 28rpx;
+}
+
+/* 购物车弹窗样式 */
+.cart-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1001;
+  visibility: hidden;
+}
+
+.cart-popup.show {
+  visibility: visible;
+}
+
+.cart-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.cart-detail {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  border-radius: 30rpx 30rpx 0 0;
+  transform: translateY(100%);
+  transition: transform 0.3s;
+  max-height: 70vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-popup.show .cart-detail {
+  transform: translateY(0);
+}
+
+.cart-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 30rpx;
+  border-bottom: 1px solid #eee;
+}
+
+.cart-title {
+  font-size: 32rpx;
+  font-weight: bold;
+}
+
+.cart-clear {
+  color: #999;
+  font-size: 28rpx;
+}
+
+.cart-list {
+  flex: 1;
+  overflow-y: auto;
+  max-height: 50vh;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  padding: 20rpx 30rpx;
+  border-bottom: 1px solid #f5f5f5;
+}
+
+.cart-item-name {
+  flex: 1;
+  font-size: 28rpx;
+}
+
+.cart-item-price {
+  margin-right: 30rpx;
+  font-size: 28rpx;
+}
+
+.cart-footer {
+  padding: 30rpx;
+  border-top: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cart-total {
+  font-size: 28rpx;
+}
+
+.submit-btn {
+  margin: 0;
+  padding: 0 60rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-radius: 40rpx;
+  font-size: 28rpx;
+}

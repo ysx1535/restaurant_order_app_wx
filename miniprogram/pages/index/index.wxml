@@ -1,0 +1,73 @@
+<!--index.wxml-->
+<view class="page">
+  <!-- 轮播图部分 -->
+  <swiper class="banner" indicator-dots="true" autoplay="true" interval="3000" duration="500">
+    <block wx:for="{{banners}}" wx:key="id">
+      <swiper-item>
+        <image src="{{item.image}}" class="slide-image" mode="aspectFill"/>
+      </swiper-item>
+    </block>
+  </swiper>
+
+  <!-- 餐厅LOGO和名称 -->
+  <view class="restaurant-info card">
+    <image class="logo" src="{{restaurantInfo.logo}}" mode="aspectFit"></image>
+    <view class="info">
+      <view class="name text-bold">{{restaurantInfo.name}}</view>
+      <view class="description text-secondary">{{restaurantInfo.description}}</view>
+    </view>
+  </view>
+
+  <!-- 搜索框 -->
+  <view class="search-container">
+    <view class="search-box">
+      <icon type="search" size="16" color="#999"></icon>
+      <input placeholder="搜索菜品" bindinput="onSearchInput" confirm-type="search" bindconfirm="onSearch"/>
+    </view>
+  </view>
+
+  <!-- 菜品分类导航 -->
+  <view class="category-nav">
+    <view class="category-title">菜品分类</view>
+    <view class="category-list">
+      <view class="category-item {{currentCategory === 'breakfast' ? 'active' : ''}}" bindtap="switchCategory" data-category="breakfast">
+        <view class="category-icon">🍳</view>
+        <view class="category-name">早餐</view>
+      </view>
+      <view class="category-item {{currentCategory === 'lunch' ? 'active' : ''}}" bindtap="switchCategory" data-category="lunch">
+        <view class="category-icon">🍲</view>
+        <view class="category-name">午餐</view>
+      </view>
+      <view class="category-item {{currentCategory === 'dinner' ? 'active' : ''}}" bindtap="switchCategory" data-category="dinner">
+        <view class="category-icon">🍖</view>
+        <view class="category-name">晚餐</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 推荐菜品 -->
+  <view class="recommended-dishes">
+    <view class="section-title">推荐菜品</view>
+    <scroll-view scroll-x="true" class="dish-scroll">
+      <view class="dish-list">
+        <view class="dish-item card" wx:for="{{recommendedDishes}}" wx:key="id" bindtap="navigateToMenu" data-dish="{{item}}">
+          <image class="dish-image" src="{{item.image}}" mode="aspectFill"></image>
+          <view class="dish-info">
+            <view class="dish-name text-bold">{{item.name}}</view>
+            <view class="dish-price price">¥{{item.price}}</view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <!-- 扫码点餐按钮 -->
+  <view class="scan-btn-container">
+    <button class="scan-btn btn-primary" bindtap="scanQRCode">
+      <view class="btn-content">
+        <image class="scan-icon" src="/images/icon/scan.png" mode="aspectFit"></image>
+        <text>扫码点餐</text>
+      </view>
+    </button>
+  </view>
+</view>

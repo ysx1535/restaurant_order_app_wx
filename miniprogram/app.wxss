@@ -1,0 +1,80 @@
+/**app.wxss**/
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+}
+
+/* 通用样式 */
+.page {
+  background-color: #f8f8f8;
+  font-size: 16px;
+  font-family: -apple-system-font, Helvetica Neue, Helvetica, sans-serif;
+  min-height: 100vh;
+}
+
+/* 卡片样式 */
+.card {
+  margin: 20rpx;
+  border-radius: 10rpx;
+  background-color: #fff;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+/* 按钮样式 */
+.btn-primary {
+  background-color: #FF5722;
+  color: #fff;
+  border: none;
+}
+
+.btn-default {
+  background-color: #f8f8f8;
+  color: #333;
+  border: 1px solid #ddd;
+}
+
+/* 文本样式 */
+.text-primary {
+  color: #FF5722;
+}
+
+.text-secondary {
+  color: #999;
+}
+
+.text-bold {
+  font-weight: bold;
+}
+
+/* 分割线 */
+.divider {
+  height: 1px;
+  background-color: #eee;
+  margin: 20rpx 0;
+}
+
+/* 价格样式 */
+.price {
+  color: #FF5722;
+  font-weight: bold;
+}
+
+/* 徽章样式 */
+.badge {
+  display: inline-block;
+  padding: 4rpx 12rpx;
+  font-size: 24rpx;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  border-radius: 20rpx;
+  background-color: #FF5722;
+  color: #fff;
+}

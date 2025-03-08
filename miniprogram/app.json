@@ -1,0 +1,49 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/menu/menu",
+    "pages/order/order",
+    "pages/user/user",
+    "pages/cart/cart"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#FF5722",
+    "navigationBarTitleText": "美味餐厅",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#FF5722",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/icon/home.png",
+        "selectedIconPath": "images/icon/home_selected.png"
+      },
+      {
+        "pagePath": "pages/menu/menu",
+        "text": "点餐",
+        "iconPath": "images/icon/menu.png",
+        "selectedIconPath": "images/icon/menu_selected.png"
+      },
+      {
+        "pagePath": "pages/order/order",
+        "text": "订单",
+        "iconPath": "images/icon/order.png",
+        "selectedIconPath": "images/icon/order_selected.png"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "text": "我的",
+        "iconPath": "images/icon/user.png",
+        "selectedIconPath": "images/icon/user_selected.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}
